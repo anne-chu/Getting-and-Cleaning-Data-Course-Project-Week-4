@@ -1,0 +1,78 @@
+---
+#title: "CodeBook for accelerometry data analysis"
+---
+
+##Data variables
+The data is taken from UCI HAR Dataset. 
+
+###**Identifiers**
+subject - ID of participant
+activity - ID of activity type
+
+###**Measured variables**
+- mean() and standart deviation, std() for the following features (other values are presented in initial dataset, but for this reasearch only these parameters were used)
+
+**feature info**
+- t: time domain signal
+- Acc: acceleration signal
+- Gyro: gyroscope signal
+- Jerk: jerk signal obtained from linear acceleration and angular velocity
+- Mag: magnitude of signal
+- -XYZ: 3-axial signals in the X, Y, Z directions
+- f: fast Fourier transform of the signal
+- mean(): statistical mean applied to the time domain signal
+- std(): standard deviation of the time domain signal
+- Body: results from human movement
+- Gravity: results from gravitational force
+
+**feature detail**
+- tBodyAcc-XYZ
+- tGravityAcc-XYZ
+- tBodyAccJerk-XYZ
+- tBodyGyro-XYZ
+- tBodyGyroJerk-XYZ
+- tBodyAccMag
+- tGravityAccMag
+- tBodyAccJerkMag
+- tBodyGyroMag
+- tBodyGyroJerkMag
+- fBodyAcc-XYZ
+- fBodyAccJerk-XYZ
+- fBodyGyro-XYZ
+- fBodyAccMag
+- fBodyAccJerkMag
+- fBodyGyroMag
+- fBodyGyroJerkMag
+
+##Variables involved in each of the 5 instructions:
+###1. Merges the training and the test sets to create one data set
+
+- train.subject : subject IDs for test
+- test.subject : subject IDs for train
+- test.x : values of variables in test
+- train.x : values of variables in train
+- test.y : activity ID in test
+- train.y : activity ID in train
+- activity_labels : Description of activity IDs in y_test and y_train; including WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+- trainData : cbind of train.subject, train.y, train.x
+- testData : cbind of test.subject, test.y, test.x
+- mergedData : rbind of trainData, testData
+
+###2.Extracts only the measurements on the mean and standard deviation for each measurement
+
+- featureName : description (label) of each variables in train.x and test.x
+- featureIndex : a vector of only mean and std labels extracted from 2nd column of features
+- finalData : at the end of this step, finalData will only contain mean and std variable
+
+###3. Uses descriptive activity names to name the activities in the data set
+
+- activityName : a vector of descriptive activity names
+
+###4. Appropriately labels the data set with descriptive variable names
+
+- finalData : at this stage, finalData will be labeled ('factored') with descriptive variable names using activityName generated in instruction #3
+
+###5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
+
+- Data2 : mean values of features grouped by activitylabel and subject
+- tidydata.txt : final exported data 
