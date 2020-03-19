@@ -1,9 +1,3 @@
----
-title: "README for accelerometry data analysis"
-author: "ACHY"
-date: "3/18/2020"
-
----
 
 ##Project Introduction
 The run_analysis.R script performs the data preparation and then followed by the 5 steps required as described in the course project’s definition.
